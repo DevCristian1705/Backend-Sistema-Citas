@@ -7,7 +7,7 @@ import com.sisCitas.jwt.TokenProvider;
 
 
 import com.sisCitas.persistence.entity.Usuario;
-import com.sisCitas.persistence.repository.UserRepository;
+import com.sisCitas.persistence.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,7 +34,7 @@ public class AuthController {
     private AuthenticationManagerBuilder authenticationManagerBuilder;
 
     @Autowired
-    private UserRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @PostMapping("/authenticate")
     public ResponseEntity<TokenDto> authorize(@Valid @RequestBody LoginDto loginDto) {

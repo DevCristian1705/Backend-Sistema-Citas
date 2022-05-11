@@ -1,4 +1,4 @@
-package com.sisCitas.handler;
+package com.sisCitas.jwt.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

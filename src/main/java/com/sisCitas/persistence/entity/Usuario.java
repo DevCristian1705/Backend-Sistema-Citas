@@ -1,5 +1,6 @@
 package com.sisCitas.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sisCitas.utils.Auditoria;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Builder
@@ -22,13 +24,15 @@ public class Usuario extends Auditoria<String> {
     private String nombres;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private Date fechaNacimiento;
     private String sexo;
     private String direccion;
     private String correo;
     private Integer telefono;
     private String usuario;
     private String password;
-    private boolean isactivo;
     private boolean isadmin;
 
+    @JsonIgnore
+    private boolean isactivo;
 }

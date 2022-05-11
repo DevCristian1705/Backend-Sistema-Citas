@@ -4,8 +4,8 @@ import com.sisCitas.persistence.entity.Usuario;
 import com.sisCitas.persistence.repository.UsuarioRepository;
 import com.sisCitas.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -17,21 +17,26 @@ import java.util.List;
 public class UsuarioServiceImpl implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
+    @Autowired
+    public PasswordEncoder passwordEncoder;
+
     @Override
     public Usuario save(Usuario usuario) {
         usuario.setIsactivo(true);
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);
     }
 
     @Override
     public Usuario update(Usuario usuario) {
         usuario.setIsactivo(true);
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);
     }
 
     @Override
-    public List<Usuario> ListAllByPage() {
-        return usuarioRepository.findByIsactivo(true);
+    public List<Usuario> ListAll() {
+        return usuarioRepository.findAll();
     }
 
     @Override

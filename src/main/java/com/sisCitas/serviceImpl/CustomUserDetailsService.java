@@ -2,7 +2,7 @@ package com.sisCitas.serviceImpl;
 
 
 import com.sisCitas.persistence.entity.Usuario;
-import com.sisCitas.persistence.repository.UserRepository;
+import com.sisCitas.persistence.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,18 +15,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component("userDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository userRepository;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String username) {
-        return userRepository.findOneByUsuario(username)
+        return userRepository.findOneWithAuthoritiesByUsuario(username)
                 .map(user -> createUser(username, user))
                 .orElseThrow(() -> new UsernameNotFoundException(username + " -> no encontrado en la base de datos."));
     }
