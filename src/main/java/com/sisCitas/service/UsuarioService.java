@@ -10,9 +10,4 @@ public interface UsuarioService {
     List<Usuario> ListAll();
     Long delete(Long idusuario);
 
-
-
-
-
-
 }
