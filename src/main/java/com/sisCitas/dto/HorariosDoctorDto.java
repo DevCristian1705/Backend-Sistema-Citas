@@ -7,7 +7,7 @@ import java.time.LocalTime;
 @Data
 @Builder
 public class HorariosDoctorDto {
-    private Long iddoctor;
+    private Long idusuario;
     private String nombres;
     private Long idhorario;
     private LocalTime horainicio;

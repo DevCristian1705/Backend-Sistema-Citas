@@ -36,6 +36,19 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/listardoctores")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<Object> findAllByIsdoctorTrueAndIsactivoTrue() {
+        try {
+            List<Usuario> c = usuarioService.findAllByIsdoctorTrueAndIsactivoTrue();
+            return ResponseHandler.generateResponse("Datos listados con exito!", HttpStatus.OK, c);
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
+    }
+
+
+
 
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")

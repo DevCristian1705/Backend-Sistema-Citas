@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface HorarioRepository extends JpaRepository<Horario, Long> {
     @Query(
-            value = "call ObtenerHorariosPorIdDoctor(:idDoctor)"
+            value = "call ObtenerHorariosPorIdDoctor(:idUsuario)"
             , nativeQuery = true
     )
-    List<Object[]> obtenerHorariosPorIdDoctor(Long idDoctor);
+    List<Object[]> obtenerHorariosPorIdDoctor(Long idUsuario);
 }

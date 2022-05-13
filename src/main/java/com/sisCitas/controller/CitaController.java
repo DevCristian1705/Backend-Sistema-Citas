@@ -1,5 +1,6 @@
 package com.sisCitas.controller;
 
+import com.sisCitas.dto.CitasUsuarioDto;
 import com.sisCitas.jwt.handler.ResponseHandler;
 import com.sisCitas.persistence.entity.Cita;
 import com.sisCitas.service.CitaService;
@@ -29,6 +30,19 @@ public class CitaController {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
+
+    @GetMapping("/listar/{idusuario}")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<Object> getCitas(@PathVariable Long idusuario) {
+        try {
+            List<CitasUsuarioDto> c = citaService.obtenerCitasPorIdUsuario(idusuario);
+            return ResponseHandler.generateResponse("Datos listados citas  por usuario  con exito!.", HttpStatus.OK, c);
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
+    }
+
+
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Object> save(@Valid @RequestBody Cita cita){

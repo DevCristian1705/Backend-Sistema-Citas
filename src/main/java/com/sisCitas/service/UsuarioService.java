@@ -8,6 +8,7 @@ public interface UsuarioService {
     Usuario save(Usuario usuario);
     Usuario update(Usuario usuario);
     List<Usuario> ListAll();
+    List<Usuario> findAllByIsdoctorTrueAndIsactivoTrue();
     Long delete(Long idusuario);
 
 }

@@ -1,9 +1,8 @@
 package com.sisCitas.controller;
 
-import com.sisCitas.dto.HorariosDoctorDto;
 import com.sisCitas.jwt.handler.ResponseHandler;
-import com.sisCitas.persistence.entity.Horario;
-import com.sisCitas.service.HorarioService;
+import com.sisCitas.persistence.entity.DiasAtencion;
+import com.sisCitas.service.DiasAtencionService;
 import io.swagger.annotations.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,40 +13,40 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/horario")
+@RequestMapping("api/diasatencion")
 @RequiredArgsConstructor
 
-public class HorarioController {
-
-    private final HorarioService horarioService;
+public class DiasAtencionController {
+    private final DiasAtencionService diasAtencionService;
 
     @GetMapping("/listar")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Object> get() {
         try {
-            List<Horario> c = horarioService.ListAll();
+            List<DiasAtencion> c = diasAtencionService.ListAll();
             return ResponseHandler.generateResponse("Datos listados con exito!.", HttpStatus.OK, c);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
 
-    @GetMapping("/listar/{idusuario}")
+    @GetMapping("/listar/{idusuariodoctor}")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> getHorarios(@PathVariable Long idusuario) {
+    public ResponseEntity<Object> findAllByIdusuario(@PathVariable Long idusuariodoctor) {
         try {
-            List<HorariosDoctorDto> c = horarioService.obtenerHorariosPorIdDoctor(idusuario);
-            return ResponseHandler.generateResponse("Datos listados los horarios por usuariodoctor  con exito!.", HttpStatus.OK, c);
+            List<DiasAtencion> result = diasAtencionService.findAllByIdusuario(idusuariodoctor);
+            return ResponseHandler.generateResponse("Dato listados por id doctor con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
 
+
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> save(@Valid @RequestBody Horario horario) {
+    public ResponseEntity<Object> save(@Valid @RequestBody DiasAtencion diasAtencion) {
         try {
-            Horario result = horarioService.save(horario);
+            DiasAtencion result = diasAtencionService.save(diasAtencion);
             return ResponseHandler.generateResponse("Datos registrados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
@@ -56,9 +55,9 @@ public class HorarioController {
 
     @PutMapping("/update")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> update(@Valid @RequestBody Horario horario) {
+    public ResponseEntity<Object> update(@Valid @RequestBody DiasAtencion diasAtencion) {
         try {
-            Horario result = horarioService.save(horario);
+            DiasAtencion result = diasAtencionService.save(diasAtencion);
             return ResponseHandler.generateResponse("Datos actualizados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
@@ -67,12 +66,14 @@ public class HorarioController {
 
     @DeleteMapping("/delete/{idhorario}")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> delete(@PathVariable Long idhorario) {
+    public ResponseEntity<Object> delete(@PathVariable Long iddiasatencion) {
         try {
-            Long result = horarioService.delete(idhorario);
+            Long result = diasAtencionService.delete(iddiasatencion);
             return ResponseHandler.generateResponse("Dato eliminado con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
+
+
 }

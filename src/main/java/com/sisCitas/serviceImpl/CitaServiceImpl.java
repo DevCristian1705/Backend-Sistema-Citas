@@ -1,15 +1,14 @@
 package com.sisCitas.serviceImpl;
 
+import com.sisCitas.dto.CitasUsuarioDto;
 import com.sisCitas.persistence.entity.Cita;
-import com.sisCitas.persistence.entity.Doctor;
 import com.sisCitas.persistence.repository.CitaRepository;
 import com.sisCitas.service.CitaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,4 +44,26 @@ public class CitaServiceImpl  implements CitaService {
         rpta = citaRepository.save(c) != null ? idcita : 0L;
         return rpta;
     }
+
+    @Override
+    public List<CitasUsuarioDto> obtenerCitasPorIdUsuario(Long idusuario) {
+        List<CitasUsuarioDto> citas = new ArrayList<>();
+        citaRepository.obtenerCitasPorIdUsuario(idusuario).forEach(item -> {
+            CitasUsuarioDto h = CitasUsuarioDto.builder()
+                    .idcita(Long.parseLong(item[0].toString()))
+                    .idusuario(Long.parseLong(item[1].toString()))
+                    .idhorariodoctores(Long.parseLong(item[2].toString()))
+                    .usuario(item[3].toString())
+                    .doctor(item[4].toString())
+                    .fecha(item[5].toString())
+                    .horainicio(item[6].toString())
+                    .horafin(item[7].toString())
+                    .tipocita(item[8].toString())
+                    .isadmin(Boolean.parseBoolean(item[9].toString()))
+                    .build();
+            citas.add(h);
+        });
+        return citas;
+    }
+
 }

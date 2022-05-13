@@ -40,6 +40,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public List<Usuario> findAllByIsdoctorTrueAndIsactivoTrue() {
+        return usuarioRepository.findAllByIsdoctorTrueAndIsactivoTrue();
+    }
+
+    @Override
     public Long delete(Long idusuario) {
         Long rpta = 0L;
         Usuario c = usuarioRepository

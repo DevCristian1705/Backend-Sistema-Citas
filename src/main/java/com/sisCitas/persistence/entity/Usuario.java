@@ -32,7 +32,8 @@ public class Usuario extends Auditoria<String> {
     private String usuario;
     private String password;
     private boolean isadmin;
-
+    private String colegiatura;
+    private boolean isdoctor;
     @JsonIgnore
     private boolean isactivo;
 }

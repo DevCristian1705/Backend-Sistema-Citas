@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,11 +48,11 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     @Override
-    public List<HorariosDoctorDto> obtenerHorariosPorIdDoctor(Long iddoctor) {
+    public List<HorariosDoctorDto> obtenerHorariosPorIdDoctor(Long idusuario) {
         List<HorariosDoctorDto> horarios = new ArrayList<>();
-        horarioRepository.obtenerHorariosPorIdDoctor(iddoctor).forEach(item -> {
+        horarioRepository.obtenerHorariosPorIdDoctor(idusuario).forEach(item -> {
             HorariosDoctorDto h = HorariosDoctorDto.builder()
-                    .iddoctor(Long.parseLong(item[0].toString()))
+                    .idusuario(Long.parseLong(item[0].toString()))
                     .nombres(item[1].toString())
                     .idhorario(Long.parseLong(item[2].toString()))
                     .horainicio(LocalTime.parse(item[3].toString()))
