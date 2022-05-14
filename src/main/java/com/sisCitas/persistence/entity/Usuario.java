@@ -35,5 +35,8 @@ public class Usuario extends Auditoria<String> {
     private String colegiatura;
     private boolean isdoctor;
     @JsonIgnore
+    private boolean isdoctoractivo;
     private boolean isactivo;
+
+
 }

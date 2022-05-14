@@ -5,9 +5,9 @@ import com.sisCitas.persistence.entity.DiasAtencion;
 import java.util.List;
 
 public interface DiasAtencionService {
-    DiasAtencion save(DiasAtencion diasAtencion);
-    DiasAtencion update(DiasAtencion diasAtencion);
+    boolean save(List<DiasAtencion> diasAtencion);
+    List<DiasAtencion> update(DiasAtencion diasAtencion);
     List<DiasAtencion> ListAll();
-    List<DiasAtencion> findAllByIdusuario(Long idusuario);
+    List<DiasAtencion> findAllByIdusuariodoctor(Long idusuariodoctor);
     Long delete(Long iddiasatencion);
 }

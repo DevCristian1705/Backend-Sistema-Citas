@@ -20,7 +20,7 @@ public class DiasAtencion  extends Auditoria<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long iddiasatencion;
-    private Long idusuario;
+    private Long idusuariodoctor;
     private Date diaatencion;
     private String nombredia;
 

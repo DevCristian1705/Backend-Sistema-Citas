@@ -13,5 +13,4 @@ public class HorariosDoctorDto {
     private LocalTime horainicio;
     private LocalTime horafin;
     private Boolean isdiponible;
-
 }

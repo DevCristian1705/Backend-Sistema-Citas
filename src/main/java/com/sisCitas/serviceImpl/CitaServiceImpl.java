@@ -46,9 +46,9 @@ public class CitaServiceImpl  implements CitaService {
     }
 
     @Override
-    public List<CitasUsuarioDto> obtenerCitasPorIdUsuario(Long idusuario) {
+    public List<CitasUsuarioDto> obtenerCitasPorIdUsuario(Long idusuario, Long idusuariodoctor) {
         List<CitasUsuarioDto> citas = new ArrayList<>();
-        citaRepository.obtenerCitasPorIdUsuario(idusuario).forEach(item -> {
+        citaRepository.obtenerCitasPorIdUsuario(idusuario, idusuariodoctor).forEach(item -> {
             CitasUsuarioDto h = CitasUsuarioDto.builder()
                     .idcita(Long.parseLong(item[0].toString()))
                     .idusuario(Long.parseLong(item[1].toString()))

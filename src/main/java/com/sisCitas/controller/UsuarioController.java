@@ -48,8 +48,6 @@ public class UsuarioController {
     }
 
 
-
-
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Object> save(@Valid @RequestBody Usuario usuario) {

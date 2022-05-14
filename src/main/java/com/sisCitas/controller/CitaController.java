@@ -31,11 +31,11 @@ public class CitaController {
         }
     }
 
-    @GetMapping("/listar/{idusuario}")
+    @GetMapping("/listar/{idusuario}/{idusuariodoctor}")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> getCitas(@PathVariable Long idusuario) {
+    public ResponseEntity<Object> getCitas(@PathVariable Long idusuario, @PathVariable Long idusuariodoctor) {
         try {
-            List<CitasUsuarioDto> c = citaService.obtenerCitasPorIdUsuario(idusuario);
+            List<CitasUsuarioDto> c = citaService.obtenerCitasPorIdUsuario(idusuario, idusuariodoctor);
             return ResponseHandler.generateResponse("Datos listados citas  por usuario  con exito!.", HttpStatus.OK, c);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);

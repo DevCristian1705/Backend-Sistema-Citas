@@ -22,6 +22,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario save(Usuario usuario) {
+        if(usuario.isIsdoctor()){
+            usuario.setIsdoctoractivo(true);
+        }
         usuario.setIsactivo(true);
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);
@@ -29,6 +32,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario update(Usuario usuario) {
+        if(usuario.isIsdoctor()){
+            usuario.setIsdoctoractivo(true);
+        }
         usuario.setIsactivo(true);
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);

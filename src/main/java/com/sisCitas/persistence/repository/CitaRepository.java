@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface CitaRepository extends JpaRepository<Cita, Long> {
     @Query(
-            value = "call ObtenerCitasPorIdUsuario(:idUsuario)"
+            value = "call ObtenerCitasPorIdUsuario(:idUsuario,:idUsuarioDoctor)"
             , nativeQuery = true
     )
-    List<Object[]> obtenerCitasPorIdUsuario(Long idUsuario);
+    List<Object[]> obtenerCitasPorIdUsuario(Long idUsuario, Long idUsuarioDoctor);
 
 }

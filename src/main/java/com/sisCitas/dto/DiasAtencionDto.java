@@ -10,7 +10,7 @@ import lombok.Data;
 public class DiasAtencionDto {
 
     private Long iddiasatencion;
-    private Long iddoctor;
+    private Long idusuariodoctor;
     private String diaatencion;
     private String nombredia;
 

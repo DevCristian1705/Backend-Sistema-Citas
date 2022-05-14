@@ -32,9 +32,9 @@ public class DiasAtencionController {
 
     @GetMapping("/listar/{idusuariodoctor}")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> findAllByIdusuario(@PathVariable Long idusuariodoctor) {
+    public ResponseEntity<Object> findAllByIdusuariodoctor(@PathVariable Long idusuariodoctor) {
         try {
-            List<DiasAtencion> result = diasAtencionService.findAllByIdusuario(idusuariodoctor);
+            List<DiasAtencion> result = diasAtencionService.findAllByIdusuariodoctor(idusuariodoctor);
             return ResponseHandler.generateResponse("Dato listados por id doctor con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
@@ -44,9 +44,9 @@ public class DiasAtencionController {
 
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> save(@Valid @RequestBody DiasAtencion diasAtencion) {
+    public ResponseEntity<Object> save(@Valid @RequestBody List<DiasAtencion> diasAtencion) {
         try {
-            DiasAtencion result = diasAtencionService.save(diasAtencion);
+            boolean result = diasAtencionService.save(diasAtencion);
             return ResponseHandler.generateResponse("Datos registrados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
@@ -55,9 +55,9 @@ public class DiasAtencionController {
 
     @PutMapping("/update")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> update(@Valid @RequestBody DiasAtencion diasAtencion) {
+    public ResponseEntity<Object> update(@Valid @RequestBody List<DiasAtencion> diasAtencion) {
         try {
-            DiasAtencion result = diasAtencionService.save(diasAtencion);
+            List<DiasAtencion> result = null;//diasAtencionService.save(diasAtencion);
             return ResponseHandler.generateResponse("Datos actualizados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);

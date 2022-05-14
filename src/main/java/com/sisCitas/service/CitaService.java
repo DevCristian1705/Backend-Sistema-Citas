@@ -10,5 +10,5 @@ public interface CitaService {
     Cita update(Cita cita);
     List<Cita> ListAll();
     Long delete(Long idcita);
-    List<CitasUsuarioDto> obtenerCitasPorIdUsuario (Long idusuario);
+    List<CitasUsuarioDto> obtenerCitasPorIdUsuario (Long idusuario, Long idusuariodoctor);
 }

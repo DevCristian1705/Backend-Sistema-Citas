@@ -10,7 +10,7 @@ public class CitasUsuarioDto {
     private Long idcita;
     private Long idusuario;
     private Long idhorariodoctores;
-    private Long iddoctor;
+    private Long idusuariodoctor;
     private String usuario;
     private String doctor;
     private String fecha;
