@@ -15,8 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("api/diasatencion")
 @RequiredArgsConstructor
-
 public class DiasAtencionController {
+
     private final DiasAtencionService diasAtencionService;
 
     @GetMapping("/listar")

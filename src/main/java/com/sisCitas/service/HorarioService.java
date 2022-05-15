@@ -6,7 +6,7 @@ import com.sisCitas.persistence.entity.Horario;
 import java.util.List;
 
 public interface HorarioService {
-    Horario save(Horario horario);
+    boolean save(List<Horario> horario);
     Horario update(Horario horario);
     List<Horario> ListAll();
     Long delete(Long idhorario);

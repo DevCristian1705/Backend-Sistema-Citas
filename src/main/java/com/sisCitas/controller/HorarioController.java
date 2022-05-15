@@ -45,9 +45,9 @@ public class HorarioController {
 
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> save(@Valid @RequestBody Horario horario) {
+    public ResponseEntity<Object> save(@Valid @RequestBody List<Horario> horario) {
         try {
-            Horario result = horarioService.save(horario);
+            boolean result = horarioService.save(horario);
             return ResponseHandler.generateResponse("Datos registrados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
@@ -56,9 +56,9 @@ public class HorarioController {
 
     @PutMapping("/update")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> update(@Valid @RequestBody Horario horario) {
+    public ResponseEntity<Object> update(@Valid @RequestBody List<Horario> horario) {
         try {
-            Horario result = horarioService.save(horario);
+            Horario result = null; //horarioService.save(horario);
             return ResponseHandler.generateResponse("Datos actualizados con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);

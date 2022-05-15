@@ -19,9 +19,13 @@ public class HorarioServiceImpl implements HorarioService {
     private final HorarioRepository horarioRepository;
 
     @Override
-    public Horario save(Horario horario) {
-        horario.setIsactivo(true);
-        return horarioRepository.save(horario);
+    public boolean save(List<Horario> horario) {
+        List<Horario> list = new ArrayList<>();
+        horario.forEach(item -> {
+            item.setIsactivo(true);
+            list.add(item);
+        });
+        return horarioRepository.saveAll(list) != null ? true : false;
     }
 
     @Override

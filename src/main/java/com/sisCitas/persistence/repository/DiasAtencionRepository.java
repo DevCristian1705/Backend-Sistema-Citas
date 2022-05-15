@@ -2,16 +2,11 @@ package com.sisCitas.persistence.repository;
 
 import com.sisCitas.persistence.entity.DiasAtencion;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.lang.reflect.Array;
 import java.util.List;
-import java.util.Optional;
 
-
+@Repository
 public interface DiasAtencionRepository extends JpaRepository<DiasAtencion, Long> {
     List<DiasAtencion> findAllByIdusuariodoctor(Long idusuariodoctor);
-
-
-    // List<DiasAtencion[]> GuardarArrayDiasAtencion(Long idusuariodoctor);
-
 }

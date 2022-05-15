@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -14,14 +15,13 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "diasatencion")
-
 public class DiasAtencion  extends Auditoria<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long iddiasatencion;
     private Long idusuariodoctor;
-    private Date diaatencion;
+    private LocalDate diaatencion;
     private String nombredia;
 
     @JsonIgnore

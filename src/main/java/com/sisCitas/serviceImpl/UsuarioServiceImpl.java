@@ -1,5 +1,6 @@
 package com.sisCitas.serviceImpl;
 
+import com.sisCitas.persistence.entity.DiasAtencion;
 import com.sisCitas.persistence.entity.Usuario;
 import com.sisCitas.persistence.repository.UsuarioRepository;
 import com.sisCitas.service.UsuarioService;
