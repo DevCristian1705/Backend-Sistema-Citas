@@ -56,9 +56,9 @@ public class DiasAtencionServiceImpl implements DiasAtencionService {
     }
 
     @Override
-    public List<HorariosDoctorDto> obtenerHorarios(Long idusuariodoctor) {
+    public List<HorariosDoctorDto> obtenerHorarios(Long idusuariodoctor, String fechacita) {
         List<HorariosDoctorDto> horarios = new ArrayList<>();
-        diasAtencionRepository.obtenerHorarios(idusuariodoctor).forEach(item -> {
+        diasAtencionRepository.obtenerHorarios(idusuariodoctor, fechacita).forEach(item -> {
             HorariosDoctorDto h = HorariosDoctorDto.builder()
                     .iddiasatencion(Long.parseLong(item[0].toString()))
                     .idusuariodoctor(Long.parseLong(item[1].toString()))

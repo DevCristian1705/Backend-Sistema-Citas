@@ -12,9 +12,9 @@ public interface DiasAtencionRepository extends JpaRepository<DiasAtencion, Long
     List<DiasAtencion> findAllByIdusuariodoctor(Long idusuariodoctor);
 
     @Query(
-            value = "call ObtenerHorariosPorIdDoctor(:IdUsuarioDoctor)"
+            value = "call ObtenerHorariosPorIdDoctor(:IdUsuarioDoctor, :FechaCita)"
             , nativeQuery = true
     )
-    List<Object[]> obtenerHorarios(Long IdUsuarioDoctor);
+    List<Object[]> obtenerHorarios(Long IdUsuarioDoctor, String FechaCita);
 
 }

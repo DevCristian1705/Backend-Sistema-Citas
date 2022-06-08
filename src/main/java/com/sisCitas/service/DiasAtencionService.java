@@ -12,6 +12,6 @@ public interface DiasAtencionService {
     List<DiasAtencion> findAllByIdusuariodoctor(Long idusuariodoctor);
     Long delete(Long iddiasatencion);
 
-    List<HorariosDoctorDto> obtenerHorarios (Long idusuariodoctor);
+    List<HorariosDoctorDto> obtenerHorarios (Long idusuariodoctor, String fechacita);
 
 }

@@ -25,6 +25,7 @@ public class Usuario extends Auditoria<String> {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private Date fechaNacimiento;
+    private String nombrecompleto;
     private String sexo;
     private String direccion;
     private String correo;

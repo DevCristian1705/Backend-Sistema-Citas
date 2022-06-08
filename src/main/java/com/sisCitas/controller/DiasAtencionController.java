@@ -77,11 +77,11 @@ public class DiasAtencionController {
     }
 
 
-    @GetMapping("/listar-horarios/{idusuariodoctor}")
+    @GetMapping("/listar-horarios")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> getHorarios(@PathVariable Long idusuariodoctor) {
+    public ResponseEntity<Object> getHorarios( @RequestParam Long idusuariodoctor, @RequestParam(value="fechacita", required = false) String fechacita) {
         try {
-            List<HorariosDoctorDto> c = diasAtencionService.obtenerHorarios(idusuariodoctor);
+            List<HorariosDoctorDto> c = diasAtencionService.obtenerHorarios(idusuariodoctor, fechacita);
             return ResponseHandler.generateResponse("Datos listados los horarios por usuariodoctor con exito!.", HttpStatus.OK, c);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
