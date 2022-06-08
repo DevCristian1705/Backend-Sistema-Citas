@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity
@@ -19,9 +18,10 @@ public class Cita extends Auditoria<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idcita;
-    private Long idhorariodoctores;
-    private Long idtipoconsulta;
-    private Date fechacita;
+    private Long idusuario;
+    private Long iddiasatencion;
+    private Long idestadocita;
+    private Long idtipocita;
 
     @JsonIgnore
     private boolean isactivo;

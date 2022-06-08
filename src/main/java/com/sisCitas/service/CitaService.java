@@ -3,6 +3,8 @@ package com.sisCitas.service;
 import com.sisCitas.dto.CitasUsuarioDto;
 import com.sisCitas.persistence.entity.Cita;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public interface CitaService {
@@ -10,5 +12,5 @@ public interface CitaService {
     Cita update(Cita cita);
     List<Cita> ListAll();
     Long delete(Long idcita);
-    List<CitasUsuarioDto> obtenerCitasPorIdUsuario (Long idusuario, Long idusuariodoctor);
+    List<CitasUsuarioDto> obtenerCitas (Long idusuario, Long idusuariodoctor, String fechacita);
 }

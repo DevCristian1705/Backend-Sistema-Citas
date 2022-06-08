@@ -1,5 +1,6 @@
 package com.sisCitas.controller;
 
+import com.sisCitas.dto.HorariosDoctorDto;
 import com.sisCitas.jwt.handler.ResponseHandler;
 import com.sisCitas.persistence.entity.DiasAtencion;
 import com.sisCitas.service.DiasAtencionService;
@@ -32,7 +33,7 @@ public class DiasAtencionController {
 
     @GetMapping("/listar/{idusuariodoctor}")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> findAllByIdusuariodoctor(@PathVariable Long idusuariodoctor) {
+   public ResponseEntity<Object> findAllByIdusuariodoctor(@PathVariable Long idusuariodoctor) {
         try {
             List<DiasAtencion> result = diasAtencionService.findAllByIdusuariodoctor(idusuariodoctor);
             return ResponseHandler.generateResponse("Dato listados por id doctor con exito!", HttpStatus.OK, result);
@@ -75,5 +76,16 @@ public class DiasAtencionController {
         }
     }
 
+
+    @GetMapping("/listar-horarios/{idusuariodoctor}")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<Object> getHorarios(@PathVariable Long idusuariodoctor) {
+        try {
+            List<HorariosDoctorDto> c = diasAtencionService.obtenerHorarios(idusuariodoctor);
+            return ResponseHandler.generateResponse("Datos listados los horarios por usuariodoctor con exito!.", HttpStatus.OK, c);
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
+    }
 
 }

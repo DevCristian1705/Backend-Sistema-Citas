@@ -3,20 +3,22 @@ package com.sisCitas.dto;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 
 public class CitasUsuarioDto {
     private Long idcita;
+    private String dni;
     private Long idusuario;
-    private Long idhorariodoctores;
-    private Long idusuariodoctor;
     private String usuario;
+    private Long idusuariodoctor;
     private String doctor;
-    private String fecha;
     private String horainicio;
     private String horafin;
     private String tipocita;
-    private Boolean isadmin;
-
+    private String estado;
+    private LocalDate fechacita;
+    private Long iddiasatencion;
 }

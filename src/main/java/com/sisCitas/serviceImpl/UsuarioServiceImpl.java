@@ -1,6 +1,5 @@
 package com.sisCitas.serviceImpl;
 
-import com.sisCitas.persistence.entity.DiasAtencion;
 import com.sisCitas.persistence.entity.Usuario;
 import com.sisCitas.persistence.repository.UsuarioRepository;
 import com.sisCitas.service.UsuarioService;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -47,9 +47,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public List<Usuario> findAllByIsdoctorTrueAndIsactivoTrue() {
-        return usuarioRepository.findAllByIsdoctorTrueAndIsactivoTrue();
+    public List<Usuario> ListUsuarioDoctor() {
+        return usuarioRepository.findAllByIsdoctorTrueAndIsdoctoractivoTrue();
     }
+
+
+    @Override
+    public Optional<Usuario> getUsuarioId(Long idusuario) {
+        Optional<Usuario> data = usuarioRepository.findByIdusuarioAndIsactivoTrue(idusuario);
+        return data;
+    }
+
 
     @Override
     public Long delete(Long idusuario) {

@@ -4,13 +4,15 @@ import com.sisCitas.persistence.entity.Cita;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public interface CitaRepository extends JpaRepository<Cita, Long> {
     @Query(
-            value = "call ObtenerCitasPorIdUsuario(:idUsuario,:idUsuarioDoctor)"
+            value = "call ObtenerCitas(:IdUsuario,:IdUsuarioDoctor,:FechaCita)"
             , nativeQuery = true
     )
-    List<Object[]> obtenerCitasPorIdUsuario(Long idUsuario, Long idUsuarioDoctor);
+    List<Object[]> obtenerCitas(Long IdUsuario, Long IdUsuarioDoctor, String FechaCita);
 
 }

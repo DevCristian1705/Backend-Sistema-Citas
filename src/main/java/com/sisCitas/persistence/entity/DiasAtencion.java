@@ -23,6 +23,8 @@ public class DiasAtencion  extends Auditoria<String> {
     private Long idusuariodoctor;
     private LocalDate diaatencion;
     private String nombredia;
+    private Date horainicio;
+    private Date horafin;
 
     @JsonIgnore
     private Boolean isactivo;

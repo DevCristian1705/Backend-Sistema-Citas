@@ -1,6 +1,7 @@
 package com.sisCitas.controller;
 
 import com.sisCitas.jwt.handler.ResponseHandler;
+import com.sisCitas.persistence.entity.DiasAtencion;
 import com.sisCitas.persistence.entity.Usuario;
 import com.sisCitas.persistence.repository.UsuarioRepository;
 import com.sisCitas.service.UsuarioService;
@@ -36,17 +37,21 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/listar-usuario/{idusuario}")
+    public ResponseEntity<Optional<Usuario>> getUsuarioId(@PathVariable Long idusuario) {
+        return ResponseEntity.ok(usuarioService.getUsuarioId(idusuario));
+    }
+
     @GetMapping("/listardoctores")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> findAllByIsdoctorTrueAndIsactivoTrue() {
+    public ResponseEntity<Object> ListUsuarioDoctor() {
         try {
-            List<Usuario> c = usuarioService.findAllByIsdoctorTrueAndIsactivoTrue();
+            List<Usuario> c = usuarioService.ListUsuarioDoctor();
             return ResponseHandler.generateResponse("Datos listados con exito!", HttpStatus.OK, c);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
-
 
     @PostMapping("/crear")
     @ApiResponse(code = 200, message = "OK")

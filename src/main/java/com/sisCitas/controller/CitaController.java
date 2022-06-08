@@ -31,12 +31,14 @@ public class CitaController {
         }
     }
 
-    @GetMapping("/listar/{idusuario}/{idusuariodoctor}")
+    //MUESTRA DATOS CON PARAMETROS idusuario - idusuariodoctor - fechacita
+    @GetMapping("/listar-historial")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> getCitas(@PathVariable Long idusuario, @PathVariable Long idusuariodoctor) {
+    public ResponseEntity<Object> getCitas(@RequestParam Long idusuario, @RequestParam Long idusuariodoctor, @RequestParam(value="fechacita", required = false) String fechacita) {
+        System.out.println("fechca que lleg"+ fechacita);
         try {
-            List<CitasUsuarioDto> c = citaService.obtenerCitasPorIdUsuario(idusuario, idusuariodoctor);
-            return ResponseHandler.generateResponse("Datos listados citas  por usuario  con exito!.", HttpStatus.OK, c);
+            List<CitasUsuarioDto> c = citaService.obtenerCitas(idusuario, idusuariodoctor, fechacita);
+            return ResponseHandler.generateResponse("Datos listados citas con exito!.", HttpStatus.OK, c);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
