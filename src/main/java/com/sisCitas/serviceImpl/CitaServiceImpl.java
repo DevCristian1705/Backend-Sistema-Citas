@@ -1,5 +1,6 @@
 package com.sisCitas.serviceImpl;
 
+import com.sisCitas.dto.CitasDto;
 import com.sisCitas.dto.CitasUsuarioDto;
 import com.sisCitas.persistence.entity.Cita;
 import com.sisCitas.persistence.entity.DiasAtencion;
@@ -20,6 +21,7 @@ import java.util.List;
 public class CitaServiceImpl  implements CitaService {
     private final CitaRepository citaRepository;
     private final DiasAtencionRepository diasAtencionRepository;
+
     @Override
     public Cita save(Cita cita) {
         Cita c = new Cita();
@@ -53,17 +55,22 @@ public class CitaServiceImpl  implements CitaService {
     }
 
     @Override
-    public Long delete(Long idcita) {
-        Long rpta = 0L;
-        Cita c = citaRepository
-                .findById(idcita)
-                .orElseThrow(EntityNotFoundException::new);
-        c.setIsactivo(false);
-        rpta = citaRepository.save(c) != null ? idcita : 0L;
-        return rpta;
+    public boolean saveAll(List<Cita> cita) {
+        List<Cita> c = new ArrayList<>();
+        cita.forEach(item -> {
+            item.setIsactivo(false);
+            c.add(item);
+
+            DiasAtencion da = diasAtencionRepository
+                    .findById(item.getIddiasatencion())
+                    .orElseThrow(EntityNotFoundException::new);
+            da.setIsactivo(true);
+            diasAtencionRepository.save(da);
+        });
+
+        return citaRepository.saveAll(c) != null ? true : false;
+
     }
-
-
 
     @Override
     public List<CitasUsuarioDto> obtenerCitas(Long idusuario, Long idusuariodoctor, String fechacita) {
@@ -79,9 +86,11 @@ public class CitaServiceImpl  implements CitaService {
                     .horainicio(item[6].toString())
                     .horafin(item[7].toString())
                     .tipocita(item[8].toString())
-                    .estado(item[9].toString())
-                    .fechacita(LocalDate.parse(item[10].toString()))
-                    .iddiasatencion(Long.parseLong(item[11].toString()))
+                    .idtipocita(Long.parseLong(item[9].toString()))
+                    .estado(item[10].toString())
+                    .idestadocita(Long.parseLong(item[11].toString()))
+                    .fechacita(LocalDate.parse(item[12].toString()))
+                    .iddiasatencion(Long.parseLong(item[13].toString()))
                     .build();
             citas.add(h);
         });

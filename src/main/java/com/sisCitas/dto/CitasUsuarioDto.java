@@ -18,7 +18,9 @@ public class CitasUsuarioDto {
     private String horainicio;
     private String horafin;
     private String tipocita;
+    private Long idtipocita;
     private String estado;
+    private Long idestadocita;
     private LocalDate fechacita;
     private Long iddiasatencion;
 }

@@ -9,8 +9,5 @@ import lombok.Data;
 
 public class CitasDto {
     private Long idcita;
-    private Long idusuario;
     private Long iddiasatencion;
-    private Long idestadocita;
-    private Long idtipoatencion;
 }

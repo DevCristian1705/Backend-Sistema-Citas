@@ -1,5 +1,6 @@
 package com.sisCitas.controller;
 
+import com.sisCitas.dto.CitasDto;
 import com.sisCitas.dto.CitasUsuarioDto;
 import com.sisCitas.jwt.handler.ResponseHandler;
 import com.sisCitas.persistence.entity.Cita;
@@ -67,14 +68,27 @@ public class CitaController {
         }
     }
 
-    @DeleteMapping("/delete/{idcita}")
+  //  @DeleteMapping("/delete/{idcita}")
+   // @ApiResponse(code = 200, message = "OK")
+   // public ResponseEntity<Object> delete(@PathVariable Long idcita) {
+  //      try {
+   //         Long result = citaService.delete(idcita);
+   //         return ResponseHandler.generateResponse("Dato eliminado con exito!", HttpStatus.OK, result);
+  //      } catch (Exception e) {
+  //          return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+  //      }
+   // }
+
+
+    @PostMapping("/delete-citas-vencidas")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Object> delete(@PathVariable Long idcita) {
+    public ResponseEntity<Object> saveAll(@Valid @RequestBody List<Cita> citas) {
         try {
-            Long result = citaService.delete(idcita);
+            boolean result = citaService.saveAll(citas);
             return ResponseHandler.generateResponse("Dato eliminado con exito!", HttpStatus.OK, result);
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
     }
+
 }
