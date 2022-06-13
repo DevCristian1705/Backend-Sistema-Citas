@@ -67,9 +67,7 @@ public class CitaServiceImpl  implements CitaService {
             da.setIsactivo(true);
             diasAtencionRepository.save(da);
         });
-
         return citaRepository.saveAll(c) != null ? true : false;
-
     }
 
     @Override
