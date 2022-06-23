@@ -51,6 +51,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findAllByIsdoctorTrueAndIsdoctoractivoTrue();
     }
 
+    @Override
+    public List<Usuario> ListUsuarios() {
+        return usuarioRepository.findAllByIsdoctorFalseAndIsadminFalseAndIsactivoTrue();
+    }
+
 
     @Override
     public Optional<Usuario> getUsuarioId(Long idusuario) {

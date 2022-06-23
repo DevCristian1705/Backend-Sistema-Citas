@@ -14,5 +14,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
    Optional<Usuario> findOneByUsuario(String username);
    Optional<Usuario> findOneWithAuthoritiesByUsuario(String usuario);
    List<Usuario> findAllByIsdoctorTrueAndIsdoctoractivoTrue();
+   List<Usuario> findAllByIsdoctorFalseAndIsadminFalseAndIsactivoTrue();
    Optional<Usuario> findByIdusuarioAndIsactivoTrue(Long idusuario);
 }

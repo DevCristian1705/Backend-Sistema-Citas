@@ -32,6 +32,7 @@ public class Usuario extends Auditoria<String> {
     private Integer telefono;
     private String usuario;
     private String password;
+    private String pass;
     private boolean isadmin;
     private String colegiatura;
     private boolean isdoctor;

@@ -17,7 +17,7 @@ public class UsuarioDto {
    @Size(min = 3, max = 8)
    private String usuario;
 
-   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
    @NotNull
    @Size(min = 3, max = 6)
    private String password;

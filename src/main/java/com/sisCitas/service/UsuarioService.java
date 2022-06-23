@@ -10,6 +10,7 @@ public interface UsuarioService {
     Usuario update(Usuario usuario);
     List<Usuario> ListAll();
     List<Usuario> ListUsuarioDoctor();
+    List<Usuario> ListUsuarios();
     Long delete(Long idusuario);
     Optional<Usuario> getUsuarioId(Long idusuario);
 
