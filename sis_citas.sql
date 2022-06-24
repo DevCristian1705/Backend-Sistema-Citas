@@ -154,17 +154,18 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `idusuario` int NOT NULL AUTO_INCREMENT,
-  `nombres` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `nombres` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `apellido_paterno` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `apellido_materno` varchar(45) COLLATE utf8_bin NOT NULL,
-  `sexo` char(1) CHARACTER SET utf8 NOT NULL,
+  `apellido_materno` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `sexo` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `direccion` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `correo` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `telefono` int NOT NULL,
-  `usuario` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `usuario` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `colegiatura` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `nombrecompleto` varchar(500) COLLATE utf8_bin DEFAULT NULL,
+  `pass` varchar(500) COLLATE utf8_bin NOT NULL,
+  `colegiatura` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `nombrecompleto` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `isactivo` bit(1) NOT NULL DEFAULT b'1',
   `isdoctor` bit(1) NOT NULL DEFAULT b'0',
   `isdoctoractivo` bit(1) DEFAULT b'1',
@@ -175,7 +176,7 @@ CREATE TABLE `usuarios` (
   `fechareg` datetime NOT NULL,
   `fechaupdate` datetime DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +185,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'ADMIN','ADMIN','ADMIN','M','calle admin admin','admin@gmail.com',934550250,'00000000','$2a$10$x7T1mmBd6whfsoZ3X4T/bOdDuXM6fyiB.TpEsgkcjUQBcCbXUpn4K',NULL,'ADMINISTRADOR DE SISTEMAS',_binary '',_binary '\0',_binary '\0',_binary '','1994-05-17 00:00:00','75532647','75532647','2022-05-13 11:03:06','2022-06-07 23:27:20'),(10,'GABRIEL AUGUSTO','COSTA','REYES','M','CALLE SANTO DOMINGO SIN NUMERO','gacosta@salud.com',999999999,'01010101','$2a$10$NcHG7jLuqMI3qwEJWFf9d.1VRt5ch1iw3jEqIzXhQfhN1t2sTTlC6','AB 1203','GABRIEL AUGUSTO COSTA REYES',_binary '',_binary '',_binary '',_binary '\0','2022-06-07 00:00:00','75532647','75532647','2022-06-08 17:00:15','2022-06-08 17:00:15'),(11,'JAZMIN','OLIVERA','TOLER','F','san miguel 9081','jazmino@gmail.com',999999999,'02020202','$2a$10$M3FjuI/JoQl.JvTCKyaN0ekpDNE8zXPUfSAl3TP2utB1Gcv76D/O6','MP 12020','JAZMIN OLIVERA TOLER',_binary '',_binary '',_binary '',_binary '\0','2022-06-27 00:00:00','00000000','00000000','2022-06-08 17:09:09','2022-06-08 17:09:09'),(12,'PEDRO ALDAIR','CALDERON','HUAMAN','M','lima metropolitana','pepe@gmail.com',568980651,'03030303','$2a$10$uQrwI7MiPwDZz3bxUBTER.agDwz.4Q03GJ8nGw4ahdYeIyuEgcWfi',NULL,'PEDRO ALDAIR CALDERON HUAMAN',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-06-23 00:00:00','anonymousUser','anonymousUser','2022-06-08 17:18:42','2022-06-08 17:18:42'),(13,'JUAN ALFONSO','CACERES','MEDINA','M','san agustin 123','juan@gmail.com',150189871,'04040404','$2a$10$o.2XO2AY6mXnOzFeEIOuY.MAuYTGKAtUc82T41UjM7LShmwFX1yWy',NULL,'JUAN ALFONSO CACERES MEDINA',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-03-22 00:00:00','anonymousUser','anonymousUser','2022-06-08 17:19:31','2022-06-08 17:19:31');
+INSERT INTO `usuarios` VALUES (1,'ADMIN','ADMIN','ADMIN','M','calle admin admin','admin@gmail.com',934550250,'00000000','$2a$10$l729I1Esgv/YsOlghkG7duSe8EmYOHwWNgooXcUqdfSrE2c4rH/H2','admin',NULL,'ADMINISTRADOR DE SISTEMAS',_binary '',_binary '\0',_binary '\0',_binary '','1994-05-17 00:00:00','75532647','00000000','2022-05-13 11:03:06','2022-06-23 21:49:36'),(10,'GABRIEL AUGUSTO','COSTA','REYES','M','CALLE SANTO DOMINGO SIN NUMERO','gacosta@salud.com',999999999,'01010101','$2a$10$NcHG7jLuqMI3qwEJWFf9d.1VRt5ch1iw3jEqIzXhQfhN1t2sTTlC6','doctor','AB 1203','GABRIEL AUGUSTO COSTA REYES',_binary '',_binary '',_binary '',_binary '\0','2022-06-07 00:00:00','75532647','75532647','2022-06-08 17:00:15','2022-06-08 17:00:15'),(11,'JAZMIN','OLIVERA','TOLER','F','san miguel 9081','jazmino@gmail.com',999999999,'02020202','$2a$10$M3FjuI/JoQl.JvTCKyaN0ekpDNE8zXPUfSAl3TP2utB1Gcv76D/O6','jazmin','MP 12020','JAZMIN OLIVERA TOLER',_binary '',_binary '',_binary '',_binary '\0','2022-06-27 00:00:00','00000000','00000000','2022-06-08 17:09:09','2022-06-08 17:09:09'),(12,'PEDRO PEPE','CALDERON','HUAMAN','M','lima metropolitana','pepe@gmail.com',205055,'03030303','$2a$10$7iIaXWSHinPcgGKNbVDV/.LU9lZycqs/FjSsDS/4g4kafa4C1C2r6','pepe',NULL,'PEDRO PEPE CALDERON HUAMAN',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-06-23 00:00:00','anonymousUser','03030303','2022-06-08 17:18:42','2022-06-23 23:08:23'),(13,'JUAN ALFONSO','CACERES','MEDINA','M','san agustin 123','juan@gmail.com',150189871,'04040404','$2a$10$UTcLZI0mhIIqWlsCY0.SruvJQjkoDKIDHFV7kTdoBhuIWAGtHF5yS','juan',NULL,'JUAN ALFONSO CACERES MEDINA',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-03-22 00:00:00','anonymousUser','00000000','2022-06-08 17:19:31','2022-06-23 22:25:14');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,4 +275,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-08 23:30:10
+-- Dump completed on 2022-06-23 23:19:07
