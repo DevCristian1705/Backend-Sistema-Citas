@@ -1,10 +1,11 @@
-package com.timesheet;
+package com.sisCitas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
-class TimesheetApplicationTests {
+public class sisCitasTests {
 
     @Test
     void contextLoads() {
