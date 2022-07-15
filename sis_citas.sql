@@ -37,7 +37,7 @@ CREATE TABLE `citas` (
   `userupdate` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`idcita`),
   UNIQUE KEY `idcita_UNIQUE` (`idcita`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `citas` (
 
 LOCK TABLES `citas` WRITE;
 /*!40000 ALTER TABLE `citas` DISABLE KEYS */;
-INSERT INTO `citas` VALUES (1,13,1,2,1,_binary '','2022-06-08 17:52:30','2022-06-08 23:27:04','04040404','00000000'),(2,13,5,1,1,_binary '','2022-06-08 18:08:44','2022-06-08 23:27:04','04040404','00000000'),(4,1,3,1,2,_binary '','2022-06-08 23:08:33','2022-06-08 23:27:04','00000000','00000000');
+INSERT INTO `citas` VALUES (1,12,1,3,1,_binary '\0','2022-07-15 09:22:40','2022-07-15 09:22:40','03030303','03030303'),(2,12,5,1,1,_binary '','2022-07-15 09:22:55','2022-07-15 09:22:55','03030303','03030303'),(3,12,8,1,2,_binary '','2022-07-15 09:23:05','2022-07-15 09:23:05','03030303','03030303'),(4,13,3,1,1,_binary '','2022-07-15 09:32:47','2022-07-15 09:32:47','04040404','04040404'),(5,13,7,1,1,_binary '','2022-07-15 09:32:57','2022-07-15 09:32:57','04040404','04040404'),(6,13,9,1,1,_binary '','2022-07-15 09:33:11','2022-07-15 09:33:11','04040404','04040404'),(7,13,22,1,1,_binary '','2022-07-15 09:33:22','2022-07-15 09:36:16','04040404','04040404'),(8,17,2,2,2,_binary '','2022-07-15 09:36:46','2022-07-15 09:36:46','05050505','05050505'),(9,17,14,1,1,_binary '','2022-07-15 09:36:57','2022-07-15 09:36:57','05050505','05050505'),(10,17,17,1,1,_binary '','2022-07-15 09:37:05','2022-07-15 09:37:05','05050505','05050505'),(11,17,23,1,2,_binary '','2022-07-15 09:37:28','2022-07-15 09:37:28','05050505','05050505'),(12,18,4,1,1,_binary '','2022-07-15 09:37:57','2022-07-15 09:37:57','06060606','06060606'),(13,19,18,2,1,_binary '','2022-07-15 09:38:23','2022-07-15 09:38:23','07070707','07070707'),(14,19,15,1,1,_binary '','2022-07-15 09:38:40','2022-07-15 09:38:40','07070707','07070707'),(15,20,6,1,1,_binary '','2022-07-15 09:39:17','2022-07-15 09:39:17','08080808','08080808'),(16,20,11,2,1,_binary '','2022-07-15 09:39:30','2022-07-15 09:39:30','08080808','08080808'),(17,20,19,3,1,_binary '\0','2022-07-15 09:39:42','2022-07-15 09:39:42','08080808','08080808');
 /*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ CREATE TABLE `diasatencion` (
   `fechaupdate` datetime DEFAULT NULL,
   PRIMARY KEY (`iddiasatencion`),
   UNIQUE KEY `iddiasatencion_UNIQUE` (`iddiasatencion`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin COMMENT='			';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin COMMENT='			';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `diasatencion` (
 
 LOCK TABLES `diasatencion` WRITE;
 /*!40000 ALTER TABLE `diasatencion` DISABLE KEYS */;
-INSERT INTO `diasatencion` VALUES (1,10,'2022-06-20','LUNES','2022-06-20 09:30:27','2022-06-20 10:00:27',_binary '\0','00000000','00000000','2022-06-08 17:51:25','2022-06-08 23:27:04'),(2,10,'2022-06-20','LUNES','2022-06-20 10:00:27','2022-06-20 10:30:27',_binary '','00000000','00000000','2022-06-08 17:51:25','2022-06-08 17:51:25'),(3,10,'2022-06-20','LUNES','2022-06-20 10:30:27','2022-06-20 11:00:27',_binary '\0','00000000','00000000','2022-06-08 17:51:25','2022-06-08 23:27:04'),(4,10,'2022-06-29','MIERCOLES','2022-06-29 15:00:00','2022-06-29 15:30:00',_binary '','00000000','00000000','2022-06-08 17:53:23','2022-06-08 17:53:23'),(5,10,'2022-06-29','MIERCOLES','2022-06-29 15:30:00','2022-06-29 16:00:00',_binary '\0','00000000','00000000','2022-06-08 17:53:23','2022-06-08 23:27:04'),(6,11,'2022-06-28','MARTES','2022-06-28 11:00:13','2022-06-28 11:30:13',_binary '','00000000','00000000','2022-06-08 23:16:33','2022-06-08 23:16:33'),(7,11,'2022-06-28','MARTES','2022-06-28 11:30:13','2022-06-28 12:00:13',_binary '','00000000','00000000','2022-06-08 23:16:33','2022-06-08 23:16:33'),(8,11,'2022-06-28','MARTES','2022-06-28 12:00:13','2022-06-28 12:30:13',_binary '','00000000','00000000','2022-06-08 23:16:33','2022-06-08 23:16:33'),(9,11,'2022-08-16','MARTES','2022-08-16 10:30:10','2022-08-16 11:00:10',_binary '','00000000','00000000','2022-06-08 23:25:41','2022-06-08 23:25:41'),(10,11,'2022-08-16','MARTES','2022-08-16 11:00:10','2022-08-16 11:30:10',_binary '','00000000','00000000','2022-06-08 23:25:41','2022-06-08 23:25:41'),(11,11,'2022-08-16','MARTES','2022-08-16 11:30:10','2022-08-16 12:00:10',_binary '','00000000','00000000','2022-06-08 23:25:41','2022-06-08 23:25:41');
+INSERT INTO `diasatencion` VALUES (1,10,'2022-08-03','MIERCOLES','2022-08-03 09:16:55','2022-08-03 09:46:55',_binary '\0','00000000','03030303','2022-07-15 09:17:33','2022-07-15 09:22:40'),(2,10,'2022-08-03','MIERCOLES','2022-08-03 09:46:55','2022-08-03 10:16:55',_binary '\0','00000000','05050505','2022-07-15 09:17:33','2022-07-15 09:36:46'),(3,10,'2022-08-03','MIERCOLES','2022-08-03 10:16:55','2022-08-03 10:46:55',_binary '\0','00000000','04040404','2022-07-15 09:17:33','2022-07-15 09:32:47'),(4,10,'2022-09-06','MARTES','2022-09-06 09:16:55','2022-09-06 09:46:55',_binary '\0','00000000','06060606','2022-07-15 09:17:33','2022-07-15 09:37:57'),(5,10,'2022-09-06','MARTES','2022-09-06 09:46:55','2022-09-06 10:16:55',_binary '\0','00000000','03030303','2022-07-15 09:17:33','2022-07-15 09:22:55'),(6,10,'2022-09-06','MARTES','2022-09-06 10:16:55','2022-09-06 10:46:55',_binary '\0','00000000','08080808','2022-07-15 09:17:33','2022-07-15 09:39:17'),(7,10,'2022-09-15','JUEVES','2022-09-15 09:16:55','2022-09-15 09:46:55',_binary '\0','00000000','04040404','2022-07-15 09:17:33','2022-07-15 09:32:57'),(8,10,'2022-09-15','JUEVES','2022-09-15 09:46:55','2022-09-15 10:16:55',_binary '\0','00000000','03030303','2022-07-15 09:17:33','2022-07-15 09:23:05'),(9,11,'2022-07-26','MARTES','2022-07-26 09:16:55','2022-07-26 09:46:55',_binary '\0','00000000','04040404','2022-07-15 09:17:56','2022-07-15 09:33:11'),(10,11,'2022-07-26','MARTES','2022-07-26 09:46:55','2022-07-26 10:16:55',_binary '','00000000','00000000','2022-07-15 09:17:56','2022-07-15 09:17:56'),(11,11,'2022-08-12','VIERNES','2022-08-12 09:16:55','2022-08-12 09:46:55',_binary '\0','00000000','08080808','2022-07-15 09:17:56','2022-07-15 09:39:30'),(12,11,'2022-08-12','VIERNES','2022-08-12 09:46:55','2022-08-12 10:16:55',_binary '\0','00000000','04040404','2022-07-15 09:17:56','2022-07-15 09:33:22'),(13,11,'2022-08-12','VIERNES','2022-08-12 10:16:55','2022-08-12 10:46:55',_binary '','00000000','00000000','2022-07-15 09:17:56','2022-07-15 09:17:56'),(14,11,'2022-08-23','MARTES','2022-08-23 09:16:55','2022-08-23 09:46:55',_binary '\0','00000000','05050505','2022-07-15 09:17:56','2022-07-15 09:36:57'),(15,11,'2022-08-23','MARTES','2022-08-23 09:46:55','2022-08-23 10:16:55',_binary '\0','00000000','07070707','2022-07-15 09:17:56','2022-07-15 09:38:40'),(16,15,'2022-08-02','MARTES','2022-08-02 15:10:55','2022-08-02 15:40:55',_binary '\0','00000000','04040404','2022-07-15 09:18:43','2022-07-15 09:36:06'),(17,15,'2022-08-02','MARTES','2022-08-02 15:40:55','2022-08-02 16:10:55',_binary '\0','00000000','05050505','2022-07-15 09:18:43','2022-07-15 09:37:05'),(18,15,'2022-08-02','MARTES','2022-08-02 16:10:55','2022-08-02 16:40:55',_binary '\0','00000000','07070707','2022-07-15 09:18:43','2022-07-15 09:38:23'),(19,16,'2022-08-15','LUNES','2022-08-15 08:00:00','2022-08-15 08:30:00',_binary '\0','00000000','08080808','2022-07-15 09:21:01','2022-07-15 09:39:42'),(20,16,'2022-08-15','LUNES','2022-08-15 08:30:00','2022-08-15 09:00:00',_binary '','00000000','00000000','2022-07-15 09:21:01','2022-07-15 09:21:01'),(21,16,'2022-08-15','LUNES','2022-08-15 09:00:00','2022-08-15 09:30:00',_binary '','00000000','00000000','2022-07-15 09:21:01','2022-07-15 09:21:01'),(22,16,'2022-09-16','VIERNES','2022-09-16 10:00:00','2022-09-16 10:30:00',_binary '\0','00000000','04040404','2022-07-15 09:21:01','2022-07-15 09:36:16'),(23,16,'2022-09-16','VIERNES','2022-09-16 10:30:00','2022-09-16 11:00:00',_binary '\0','00000000','05050505','2022-07-15 09:21:01','2022-07-15 09:37:28');
 /*!40000 ALTER TABLE `diasatencion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `usuarios` (
   `fechareg` datetime NOT NULL,
   `fechaupdate` datetime DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,13 +185,69 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'ADMIN','ADMIN','ADMIN','M','calle admin admin','admin@gmail.com',934550250,'00000000','$2a$10$l729I1Esgv/YsOlghkG7duSe8EmYOHwWNgooXcUqdfSrE2c4rH/H2','admin',NULL,'ADMINISTRADOR DE SISTEMAS',_binary '',_binary '\0',_binary '\0',_binary '','1994-05-17 00:00:00','75532647','00000000','2022-05-13 11:03:06','2022-06-23 21:49:36'),(10,'GABRIEL AUGUSTO','COSTA','REYES','M','CALLE SANTO DOMINGO SIN NUMERO','gacosta@salud.com',999999999,'01010101','$2a$10$NcHG7jLuqMI3qwEJWFf9d.1VRt5ch1iw3jEqIzXhQfhN1t2sTTlC6','doctor','AB 1203','GABRIEL AUGUSTO COSTA REYES',_binary '',_binary '',_binary '',_binary '\0','2022-06-07 00:00:00','75532647','75532647','2022-06-08 17:00:15','2022-06-08 17:00:15'),(11,'JAZMIN','OLIVERA','TOLER','F','san miguel 9081','jazmino@gmail.com',999999999,'02020202','$2a$10$M3FjuI/JoQl.JvTCKyaN0ekpDNE8zXPUfSAl3TP2utB1Gcv76D/O6','jazmin','MP 12020','JAZMIN OLIVERA TOLER',_binary '',_binary '',_binary '',_binary '\0','2022-06-27 00:00:00','00000000','00000000','2022-06-08 17:09:09','2022-06-08 17:09:09'),(12,'PEDRO PEPE','CALDERON','HUAMAN','M','lima metropolitana','pepe@gmail.com',205055,'03030303','$2a$10$7iIaXWSHinPcgGKNbVDV/.LU9lZycqs/FjSsDS/4g4kafa4C1C2r6','pepe',NULL,'PEDRO PEPE CALDERON HUAMAN',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-06-23 00:00:00','anonymousUser','03030303','2022-06-08 17:18:42','2022-06-23 23:08:23'),(13,'JUAN ALFONSO','CACERES','MEDINA','M','san agustin 123','juan@gmail.com',150189871,'04040404','$2a$10$UTcLZI0mhIIqWlsCY0.SruvJQjkoDKIDHFV7kTdoBhuIWAGtHF5yS','juan',NULL,'JUAN ALFONSO CACERES MEDINA',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-03-22 00:00:00','anonymousUser','00000000','2022-06-08 17:19:31','2022-06-23 22:25:14');
+INSERT INTO `usuarios` VALUES (1,'ADMIN','ADMIN','ADMIN','M','calle admin admin','admin@gmail.com',934550250,'00000000','$2a$10$l729I1Esgv/YsOlghkG7duSe8EmYOHwWNgooXcUqdfSrE2c4rH/H2','admin',NULL,'ADMINISTRADOR DE SISTEMAS',_binary '',_binary '\0',_binary '\0',_binary '','1994-05-17 00:00:00','75532647','00000000','2022-05-13 11:03:06','2022-06-23 21:49:36'),(10,'GABRIEL AUGUSTO','COSTA','REYES','M','CALLE SANTO DOMINGO SIN NUMERO','gacosta@salud.com',999999999,'01010101','$2a$10$NcHG7jLuqMI3qwEJWFf9d.1VRt5ch1iw3jEqIzXhQfhN1t2sTTlC6','doctor','AB 1203','GABRIEL AUGUSTO COSTA REYES',_binary '',_binary '',_binary '',_binary '\0','2022-06-07 00:00:00','75532647','75532647','2022-06-08 17:00:15','2022-06-08 17:00:15'),(11,'JAZMIN','OLIVERA','TOLER','F','san miguel 9081','jazmino@gmail.com',999999999,'02020202','$2a$10$M3FjuI/JoQl.JvTCKyaN0ekpDNE8zXPUfSAl3TP2utB1Gcv76D/O6','jazmin','MP 12020','JAZMIN OLIVERA TOLER',_binary '',_binary '',_binary '',_binary '\0','2022-06-27 00:00:00','00000000','00000000','2022-06-08 17:09:09','2022-06-08 17:09:09'),(12,'PEDRO PEPE','CALDERON','HUAMAN','M','lima metropolitana','pepe@gmail.com',205055,'03030303','$2a$10$7iIaXWSHinPcgGKNbVDV/.LU9lZycqs/FjSsDS/4g4kafa4C1C2r6','pepe',NULL,'PEDRO PEPE CALDERON HUAMAN',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-06-23 00:00:00','anonymousUser','03030303','2022-06-08 17:18:42','2022-06-23 23:08:23'),(13,'JUAN ALFONSO','CACERES','MEDINA','M','san agustin 123','juan@gmail.com',150189871,'04040404','$2a$10$UTcLZI0mhIIqWlsCY0.SruvJQjkoDKIDHFV7kTdoBhuIWAGtHF5yS','juan',NULL,'JUAN ALFONSO CACERES MEDINA',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-03-22 00:00:00','anonymousUser','00000000','2022-06-08 17:19:31','2022-06-23 22:25:14'),(15,'JORGE','BUSTAMANTE','OLIVA','M','av progreso','jorge@gmail.com',123123123,'33333333','$2a$10$kUroq9yXxkM4nSJ6WvSYc.hZ4ZCHCHbWPx0ZN/jbM.01u0mYVBt5i','jorge','AS 5050','JORGE BUSTAMANTE OLIVA',_binary '',_binary '',_binary '',_binary '\0','2022-05-23 00:00:00','00000000','00000000','2022-07-15 09:10:22','2022-07-15 09:10:22'),(16,'JAVIER','MORALES','GERANO','M','calle ordoñes ','javier@gmail.com',1345678,'44444444','$2a$10$soUjFF0jVL3zFn6G.rjTNuHLew/rcNbSgnpvS5RkhmL5zfYYmpTcq','javier','KOT 44','JAVIER MORALES GERANO',_binary '',_binary '',_binary '',_binary '\0','2022-03-18 00:00:00','00000000','00000000','2022-07-15 09:11:17','2022-07-15 09:11:17'),(17,'JUANA','OLIVA ','CHUNG','F','calle japon 123','juana@gmail.com',456734345,'05050505','$2a$10$Xr2hPQoxMbOL53VxCfAHSuJ4.YYAJJP04WSvNClOMTsgd6Y3L6qda','juana',NULL,'JUANA OLIVA  CHUNG',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-04-20 00:00:00','anonymousUser','anonymousUser','2022-07-15 09:14:06','2022-07-15 09:14:06'),(18,'JOSE NERIO','BARTRA','SIMON','M','jiron morelia','jode@gmail.com',231312312,'06060606','$2a$10$pSc9bJJMVEpRSEELjfda6eadOpPgtHAf8uw8eNLeRiWLZFesCPTDW','jose',NULL,'JOSE NERIO BARTRA SIMON',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-04-13 00:00:00','anonymousUser','anonymousUser','2022-07-15 09:14:54','2022-07-15 09:14:54'),(19,'SAUL','JUAREZ','OCHOA','M','callle primavera 65','saul@gmail.com',123123123,'07070707','$2a$10$X5e9nT1OIRoL0Z7IUU0vrueRV/jQ1X2qe1UKeK.4FiB2WRW0I6iyq','saul',NULL,'SAUL JUAREZ OCHOA',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-04-22 00:00:00','anonymousUser','anonymousUser','2022-07-15 09:15:42','2022-07-15 09:15:42'),(20,'FRANK','SIFUENTES','MUÑANTE','M','calle mariscatl castilla','frank@gmail.com',345345345,'08080808','$2a$10$Lf.lVrpwnwWKsr2yEpPdfOrd.JUA3uhnZFN4rghgNn6PTFKEzqKzC','frank',NULL,'FRANK SIFUENTES MUÑANTE',_binary '',_binary '\0',_binary '\0',_binary '\0','2022-04-12 00:00:00','anonymousUser','anonymousUser','2022-07-15 09:16:22','2022-07-15 09:16:22');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'sis_citas'
+--
+
+--
 -- Dumping routines for database 'sis_citas'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `GraficoCitas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GraficoCitas`()
+BEGIN
+	SELECT 
+		e.nombre as estado, 
+		count(c.idcita) as cantidad
+	FROM sis_citas.citas c
+    INNER JOIN sis_citas.estadocita e on e.idestadocita = c.idestadocita
+    GROUP BY c.idestadocita
+	ORDER BY e.idestadocita;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GraficoDoctores` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GraficoDoctores`(FInicio date, FFin date)
+BEGIN 
+	SELECT  
+		u.nombrecompleto as doctor,
+		count(c.idcita) as cantidad
+	FROM sis_citas.citas c
+	INNER JOIN sis_citas.diasatencion da on c.iddiasatencion = da.iddiasatencion 
+	INNER JOIN sis_citas.usuarios u on da.idusuariodoctor = u.idusuario 
+	WHERE c.isactivo = 1
+	AND  da.diaatencion  Between  FInicio and FFin
+	GROUP BY da.idusuariodoctor;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ObtenerCitas` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -275,4 +331,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-23 23:19:07
+-- Dump completed on 2022-07-15 13:52:37
